@@ -15,8 +15,6 @@ class TitleScreen:
 		# If ENTER is pressed, we switch to the game scene.
 		# Really, we tell the main.py method to do it.  This class was provided 
 		# with a function to do this for us when it was created!
-		#print("From TitleScreen: ")
-		#keyboard_state.show_state()
 		if (keyboard_state.enter_down):
 			self.scene_observer.trigger(observer.EventNames.EVENT_SWITCH_SCENE_LANDER)
 	def draw(self, graphics: graphics.Graphics, sounds: sounds.Sounds, fonts: fonts.Fonts, screen : pygame.Surface):

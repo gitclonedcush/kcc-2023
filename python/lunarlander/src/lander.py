@@ -71,7 +71,6 @@ class Lander:
 			screen.blit(graphics.burner_primary, self.burner_primary_rect)
 
 		if (Settings.DEBUG):
-			#print(self.lander_rect)
 			pass
 
 		# Draw the lander

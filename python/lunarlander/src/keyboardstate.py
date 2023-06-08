@@ -72,7 +72,6 @@ class KeyboardState:
 					self.space_down = False
 				if e.key == pygame.K_RETURN or e.key == pygame.K_KP_ENTER:
 					self.enter_down = False
-		#self.show_state()
 
 	def clone(self):
 		result = KeyboardState()

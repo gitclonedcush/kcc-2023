@@ -14,40 +14,28 @@ class Game:
 	def __init__(
 			self, 
 			fps,
-			#settings: settings.Settings, 
 			graphics : graphics.Graphics, 
 			sounds : sounds.Sounds, 
 			fonts : fonts.Fonts, 
 			scene_observer: Observer,
 			kbd_state: keyboardstate.KeyboardState
 			):
-		"""Capture injected __init__  parameters."""
+		"""Capture injected __init__ parameters."""
 		self.fps = fps
-		#self.settings = settings
 		self.graphics = graphics
 		self.sounds = sounds
 		self.fonts = fonts
 		self.scene_observer = scene_observer
-		#self._kbdup_listener = Listener(self.play_burner)
-		#self._kbdleft_listener = Listener(lambda : self.sounds.burner.play())
-		#self._kbdright_listener = Listener(lambda : self.sounds.burner.play())
-		#self.observer.add_listener(self._kbdup_listener)
-		#self.observer.add_listener(self._kbdleft_listener)
-		#self.observer.add_listener(self._kbdright_listener)
 		self.old_kbd_state = kbd_state.clone()
 		self.random = random.Random()
 		self.calc_everything()
 		self.reset()
 	def play_burner(self, kbdstate: keyboardstate.KeyboardState):
-		print("Burner Play!")
 		self.sounds.burner.play()
 	def stop_burner(self):
 		self.sounds.burner.stop()
 	def calc_everything(self):
 		"""These are one-time calculations that are done on init."""
-		#self.lander_scale = self.settings.LANDER_WIDTH / self.graphics.lander.get_width()
-		#self.side_burner_scale = self.settings.BURNER_SECONDARY_SIZE / self.graphics.burner_left.get_width()
-		#self.bottom_burner_scale = self.settings.BURNER_PRIMARY_SIZE / self.graphics.burner_primary.get_size()
 		pass
 	def reset(self):
 		"""Reset everything to start a new round (game)."""
@@ -74,9 +62,7 @@ class Game:
 		self.burning_left = False
 		self.burning_right = False
 	def start_landing(self):
-		print("Start landing")
 		#Check the velocity and adjust the score.  Start a cooldown to pause gameplay for a moment, then start a new game.
-		#self.reset()
 		self.is_playing = False
 		self.is_landing = True
 		self.reset_cooldown = Cooldown(pygame_time_function, 3000)
@@ -84,12 +70,8 @@ class Game:
 		self.reset_burners()
 	def do_landing(self):
 		if (self.reset_cooldown.expired()):
-			print("End landing")
-			#self.is_landing = False
-			#self.is_playing = True
 			self.reset()
 	def start_crash(self):
-		print("Start crash")
 		self.is_playing = False
 		self.is_crashing = True
 		self.reset_cooldown = Cooldown(pygame_time_function, 5000)
@@ -98,9 +80,7 @@ class Game:
 		self.reset_burners()
 	def do_crash(self):
 		if (self.reset_cooldown.expired()):
-			print("End crash")
 			# Just switch to the game over screen.
-			print("Crasharooniedoonie!")
 			self.reset()
 			self.scene_observer.trigger(EventNames.EVENT_SWITCH_SCENE_TITLESCREEN)
 		else:
@@ -109,7 +89,6 @@ class Game:
 				shard.xpos += shard.xvelocity
 				shard.ypos += shard.yvelocity
 				shard.angle = (shard.angle + shard.avelocity) % 360
-
 	def create_shrapnel(self):
 		result = []
 		shard_count = 13
@@ -136,10 +115,6 @@ class Game:
 		landed = y > Settings.LANDINGPAD_LINE_Y
 		on_the_pad = landed and x > Settings.LANDINGPAD_X_BOUNDS[0] and x < Settings.LANDINGPAD_X_BOUNDS[1]
 		if landed:
-			#print(f"Landed! ({x} , {y})")
-			#print(f"X is {x}, is it between {Settings.LANDINGPAD_X_BOUNDS[0]} and {Settings.LANDINGPAD_X_BOUNDS[1]}? {on_the_pad}")
-			print(f"Velocity: {self.velocity[1]}")
-		if landed:
 			# We have landed or crashed on the pad or the surface.  Which was it?
 			(xv, yv) = self.velocity
 			too_fast = yv > Settings.MAX_LANDING_VELOCITY
@@ -150,19 +125,15 @@ class Game:
 	def apply_gravity(self):
 		(x, y) = self.velocity
 		self.velocity = (x, y + Settings.GRAVITY * Settings.GRAVITY_SCALE)
-		#self.velocity = self.velocity + (0, Settings.GRAVITY * Settings.GRAVITY_SCALE)
 	def apply_primary_thrust(self):
 		(x, y) = self.velocity
 		self.velocity = (x, y - Settings.PRIMARY_THRUST * Settings.THRUST_SCALE)
-		#self.velocity = self.velocity + (0, Settings.PRIMARY_THRUST * Settings.THRUST_SCALE)
 	def apply_left_thrust(self):
 		(x, y) = self.velocity
 		self.velocity = (x + Settings.LEFT_THRUST * Settings.THRUST_SCALE, y)
-		#self.velocity = self.velocity + (Settings.LEFT_THRUST * Settings.THRUST_SCALE, 0)
 	def apply_right_thrust(self):
 		(x, y) = self.velocity
 		self.velocity = (x - Settings.RIGHT_THRUST * Settings.THRUST_SCALE, y)
-		#self.velocity = self.velocity + (0 - Settings.RIGHT_THRUST * Settings.THRUST_SCALE, 0)
 	def move_lander(self):
 		(leftright, updown) = self.velocity
 		(x, y) = self.position

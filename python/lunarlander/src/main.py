@@ -60,20 +60,10 @@ scenemanager.switch_to(EventNames.EVENT_SWITCH_SCENE_TITLESCREEN)
 
 # Let the titlescreen scene notify the main.py when to switch to the lander_scene
 def switch_to_lander_screen(scene_name):
-	#if scene_name == EventNames.EVENT_SWITCH_SCENE_LANDER:
-	#	scene = lander_scene
-	#elif scene_name == EventNames.EVENT_SWITCH_SCENE_TITLESCREEN:
-	#	scene = titlescreen_scene
-	#print("Switched to new scene!")
-	#print(scene)
 	scenemanager.switch_to(scene_name)
 
 scene_listener = Listener(switch_to_lander_screen)
 scene_observer.add_listener(scene_listener)
-
-#print("This is the console output!")
-#value = input("Press ENTER key to continue...")
-
 
 ###############################################################################
 # Main Game Loop
