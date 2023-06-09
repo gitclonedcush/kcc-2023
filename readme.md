@@ -26,7 +26,7 @@ It may ask you some questions:
 - How will you use it?  For education
 - As a student or a teacher?  As a student
 
-## Rocket Maze (written in C# with Unity3D)
+## My Rocket Game (written in C# with Unity3D)
 You will need:
 - Windows, MacOS or Linux computer
 - Unity 2021.3.25f1 or compatible
@@ -53,3 +53,7 @@ You can download or purchase it here:
 
 `https://education.minecraft.net/en-us/licensing`
 
+
+## Tetris (written in JavaScript)
+
+TODO: Add content here.

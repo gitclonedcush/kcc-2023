@@ -1,5 +1,4 @@
 import random
-import pygame
 import graphics
 import keyboardstate
 import sounds
@@ -11,6 +10,7 @@ from pygametimefunction import pygame_time_function
 from shard import Shard
 
 class Game:
+	"""Represents the state and behaviors of a game instance."""
 	def __init__(
 			self, 
 			fps,
@@ -62,7 +62,7 @@ class Game:
 		self.burning_left = False
 		self.burning_right = False
 	def start_landing(self):
-		#Check the velocity and adjust the score.  Start a cooldown to pause gameplay for a moment, then start a new game.
+		# Check the velocity and adjust the score.  Start a cooldown to pause gameplay for a moment, then start a new game.
 		self.is_playing = False
 		self.is_landing = True
 		self.reset_cooldown = Cooldown(pygame_time_function, 3000)
@@ -106,8 +106,8 @@ class Game:
 			result.append(shard)
 		return result
 	def check_for_landing(self):
-		# If y is >= landingpad line and downward velocity < max landing velocity then you win!  
-		# otherwise, you crash!
+		# If y is >= landingpad line and downward velocity < max landing velocity 
+		# then you win!  Otherwise, you crash!
 		
 		(x, y) = self.position
 		# Adjust the y value to be the bottom of the lander, not the top.
@@ -139,7 +139,9 @@ class Game:
 		(x, y) = self.position
 		self.position = (x + leftright, y + updown)
 	def tick(self, new_kbd_state: keyboardstate.KeyboardState):
-		
+		"""This executes every time a frame is processed (60 times per second).
+		Here, we write code to adjust the state and position of everything in the game 
+		before the next	screen is drawn."""
 		if (self.is_landing):
 			self.do_landing()
 
@@ -181,7 +183,6 @@ class Game:
 				self.apply_right_thrust()
 
 			self.move_lander()
-
 
 		# Store the new keyboard state for next time.
 		self.old_kbd_state = new_kbd_state.clone()

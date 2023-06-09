@@ -27,7 +27,6 @@ from game import Game
 # PyGame Setup
 ###############################################################################
 # Create a screen that we can draw on.
-#screen_size = (screen_columns * Settings.BLOCK_SIZE * Settings.SCALE, screen_rows * Settings.BLOCK_SIZE * Settings.SCALE)
 pygame.init()
 screen_width = Settings.SCREEN_WIDTH
 screen_height = Settings.SCREEN_HEIGHT
@@ -71,29 +70,6 @@ scene_observer.add_listener(scene_listener)
 while True:
 	# Wait until time has passed before drawing the screen again.
 	pygame.time.Clock().tick(fps)
-
-	# Look for user input in case they want to quit the game.
-	#events : List[Event] = pygame.event.get()
-	#for event in pygame.event.get():
-	#	e: pygame.event.Event = event
-	#	# Pay attention if the user clicks the X to quit.
-	#	if event.type == pygame.QUIT:
-	#		sys.exit()
-
-	#	# Check the keyboard for keypresses. 
-	#	if event.type == pygame.KEYDOWN:
-	#		if event.key == K_ESCAPE:
-	#			sys.exit()
-	#		if event.key == K_UP:
-	#			pass
-	#		if event.key == K_DOWN:
-	#			pass
-	#		if event.key == K_LEFT:
-	#			pass
-	#		if event.key == K_RIGHT:
-	#			pass
-	#		if event.key == K_RETURN or event.key == K_KP_ENTER:
-	#			pass
 
 	# Read the keyboard.  Find out which buttons are pressed.
 	kbd.update(pygame.event.get())

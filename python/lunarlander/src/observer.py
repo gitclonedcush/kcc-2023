@@ -1,9 +1,6 @@
 class EventNames:
 	EVENT_SWITCH_SCENE_TITLESCREEN = "switch-scene-titlescreen"
 	EVENT_SWITCH_SCENE_LANDER = "switch-scene-lander"
-	#KEYCHANGE_UP = "keychange-up"
-	#KEYCHANGE_LEFT = "keychange-left"
-	#KEYCHANGE_RIGHT = "keychange-right"
 
 class Observer:
 	def __init__(self):

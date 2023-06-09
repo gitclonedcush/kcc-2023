@@ -1,8 +1,6 @@
 from  observer import EventNames
 
 class SceneManager:
-	#SCENE_TITLESCREEN = "titlescreen"
-	#SCENE_LANDER = "lander"
 	def __init__(self, titlescreen_scene, lander_scene):
 		self._titlescreen_scene = titlescreen_scene
 		self._lander_scene = lander_scene

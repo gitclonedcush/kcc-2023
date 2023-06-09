@@ -16,10 +16,6 @@ class KeyboardState:
 			self.space_down == compare_to.space_down and \
 			self.esc_key_down == compare_to.esc_key_down and \
 			self.enter_down == compare_to.enter_down 
-			#and \
-			#self.reset_flag == False and \
-			#compare_to.reset_flag == False
-	
 
 	def reset(self):
 		self.esc_key_down = False
@@ -29,17 +25,11 @@ class KeyboardState:
 		self.down_arrow_down = False
 		self.space_down = False
 		self.enter_down = False
-		# This is important.  The old and new keyboard state will be the same for a moment when starting the game.  We need this to indicate that we have never made a comparison yet and they can't be considered equal!
-		#self.reset_flag = True
 	def update(self, events):
-		#self.reset_flag = False
-		#for event in pygame.event.get():
 		for e in events:
-			#e: pygame.event.Event = event
 			# Pay attention if the user clicks the X to quit.
 			if e.type == pygame.QUIT:
 				sys.exit()
-				#self.esc_key_down = True
 
 			# Check the keyboard for keypresses.
 			if e.type == pygame.KEYDOWN:

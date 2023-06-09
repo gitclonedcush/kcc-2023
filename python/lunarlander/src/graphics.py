@@ -13,17 +13,12 @@ class Graphics:
 		self.titlescreen = pygame.transform.scale(pygame.image.load(Paths.GRAPHICS_TITLESCREEN), (Settings.SCREEN_WIDTH, Settings.SCREEN_HEIGHT))
 		self.background = pygame.transform.scale(pygame.image.load(Paths.GRAPHICS_BACKGROUND), (Settings.SCREEN_WIDTH, Settings.SCREEN_HEIGHT))
 		self.burner_raw = pygame.image.load(Paths.GRAPHICS_BURNER)
-		#self.burner_primary = pygame.transform.scale(self.burner_raw, (Settings.BURNER_PRIMARY_SIZE * Settings.SCALE, Settings.BURNER_PRIMARY_SIZE * Settings.SCALE))
 		self.burner_primary = pygame.transform.scale(self.burner_raw, (Settings.BURNER_PRIMARY_SIZE, Settings.BURNER_PRIMARY_SIZE))
-		#left_angle = 3.14 / 2
-		#right_angle = 3.14 / 2 * 3
 
 		# Angles are in DEGREES, not radians?! ???
 		left_angle = 270
 		right_angle = 90
 
-		#self.burner_left = pygame.transform.rotate(pygame.transform.scale(self.burner_raw, (Settings.BURNER_SECONDARY_SIZE * Settings.SCALE, Settings.BURNER_SECONDARY_SIZE * Settings.SCALE)), left_angle)
-		#self.burner_right = pygame.transform.rotate(pygame.transform.scale(self.burner_raw, (Settings.BURNER_SECONDARY_SIZE * Settings.SCALE, Settings.BURNER_SECONDARY_SIZE * Settings.SCALE)), right_angle)
 		self.burner_left = pygame.transform.rotate(pygame.transform.scale(self.burner_raw, (Settings.BURNER_SECONDARY_SIZE, Settings.BURNER_SECONDARY_SIZE)), left_angle)
 		self.burner_right = pygame.transform.rotate(pygame.transform.scale(self.burner_raw, (Settings.BURNER_SECONDARY_SIZE, Settings.BURNER_SECONDARY_SIZE)), right_angle)
 

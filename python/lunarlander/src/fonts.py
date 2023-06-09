@@ -1,5 +1,5 @@
 import pygame
-from settings import Paths, Settings
+from settings import Paths
 
 class Fonts:
 	"""A class which contains all the sounds that we can plan in the game."""
