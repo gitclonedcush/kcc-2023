@@ -42,7 +42,6 @@ graphics = Graphics()
 sounds = Sounds()
 fonts = Fonts()
 
-
 scene_observer = Observer()
 kbd_observer = Observer()
 kbd = KeyboardState()

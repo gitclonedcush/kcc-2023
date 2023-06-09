@@ -1,5 +1,5 @@
 ###############################################################################
-# Lunar Lander Step 7 - Sound
+# Lunar Lander Step 5 - Thrust
 ###############################################################################
 import random
 import graphics
@@ -130,10 +130,7 @@ class Game:
 			# We have landed or crashed on the pad or the surface.  Which was it?
 			(xv, yv) = self.velocity
 			too_fast = yv > Settings.MAX_LANDING_VELOCITY
-			if on_the_pad and not too_fast:
-				self.start_landing()
-			else:
-				self.start_crash()
+			self.start_crash()
 	def apply_gravity(self):
 		"""Gravity will make the ship rise slower or fall faster.  
 		Use it to change our current velocity."""
@@ -174,35 +171,12 @@ class Game:
 
 			if self.old_kbd_state.up_arrow_down != new_kbd_state.up_arrow_down:
 				self.burning_primary = new_kbd_state.up_arrow_down
-				if self.burning_primary:
-					self.sounds.primaryburner.play()
-				else:
-					self.sounds.primaryburner.stop()
 
 			if self.old_kbd_state.left_arrow_down != new_kbd_state.left_arrow_down:
 				self.burning_right = new_kbd_state.left_arrow_down
-				if self.burning_right:
-					self.sounds.rightburner.play()
-				else:
-					self.sounds.rightburner.stop()
 
 			if self.old_kbd_state.right_arrow_down != new_kbd_state.right_arrow_down:
 				self.burning_left = new_kbd_state.right_arrow_down
-				if self.burning_left:
-					self.sounds. leftburner.play()
-				else:
-					self.sounds.leftburner.stop()
-
-			if self.burning_primary:
-				self.apply_primary_thrust()
-
-			if self.burning_left:
-				self.apply_left_thrust()
-
-			if self.burning_right:
-				self.apply_right_thrust()
 
 			self.move_lander()
 
-		# Store the new keyboard state for next time.
-		self.old_kbd_state = new_kbd_state.clone()

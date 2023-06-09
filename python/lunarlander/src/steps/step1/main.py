@@ -1,5 +1,5 @@
 ###############################################################################
-# Lunar Lander Step 8 - Complete game
+# Lunar Lander Step 1 - Main game loop
 ###############################################################################
 # To run, type:
 # python lander.py
@@ -42,7 +42,6 @@ graphics = Graphics()
 sounds = Sounds()
 fonts = Fonts()
 
-
 scene_observer = Observer()
 kbd_observer = Observer()
 kbd = KeyboardState()
@@ -76,8 +75,9 @@ while True:
 		sys.exit()
 
 	scene = scenemanager.scene
-	scene.update(kbd)
-	scene.draw(graphics, sounds, fonts, screen)
+	# Step 1, uncomment these lines.  They are where the magic happens!
+	#scene.update(kbd)
+	#scene.draw(graphics, sounds, fonts, screen)
 
 	pygame.display.update()
 	

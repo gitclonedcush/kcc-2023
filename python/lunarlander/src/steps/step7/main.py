@@ -1,5 +1,5 @@
 ###############################################################################
-# Lunar Lander Step 8 - Complete game
+# Lunar Lander Step 7 - Sound
 ###############################################################################
 # To run, type:
 # python lander.py
@@ -41,7 +41,6 @@ settings = Settings()
 graphics = Graphics()
 sounds = Sounds()
 fonts = Fonts()
-
 
 scene_observer = Observer()
 kbd_observer = Observer()
