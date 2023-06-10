@@ -1,0 +1,28 @@
+{
+    "name": "tetris",
+    "version": "1.0.0",
+    "description": "Tetris in Javascript",
+    "main": "index.html",
+    "scripts": {
+        "start": "parcel index.html --open",
+        "build": "parcel build index.html"
+    },
+    "dependencies": {
+        "parcel-bundler": "^1.6.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.22.5",
+        "@babel/plugin-proposal-class-properties": "^7.18.6",
+        "@babel/plugin-transform-runtime": "^7.22.5",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-preset-env": "^1.7.0",
+        "typescript": "4.4.4"
+    },
+    "resolutions": {
+        "@babel/preset-env": "7.13.8"
+    },
+    "keywords": [
+        "javascript",
+        "tetris"
+    ]
+}

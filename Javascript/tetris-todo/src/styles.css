@@ -1,0 +1,29 @@
+body,
+html {
+    /* PART 1
+    TODO: Use the font family "Press Start 2P" for the whole page  */
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 320px 200px;
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.game-board {
+    border: 2px solid;
+}
+
+.play-button {
+    font-family: "Press Start 2P", cursive;
+    background-color: #4caf50;
+    font-size: 16px;
+    padding: 15px 30px;
+    cursor: pointer;
+}
