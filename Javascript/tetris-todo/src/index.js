@@ -107,7 +107,7 @@ document.addEventListener('keydown', event => {
   if (MOVES[event.keyCode]) {
     event.preventDefault();
 
-    let movedPiece = MOVES[event.keyCode](board.piece)
+    let nextPiecePosition = MOVES[event.keyCode](board.piece)
 
     if (event.keyCode === KEY.SPACE) {
 
@@ -120,9 +120,8 @@ document.addEventListener('keydown', event => {
       // moved piece is in a valid position, and if it is, you'll want to continue the loop to move the piece down again.
       //
       // Hint: you'll want to use a while loop here
-
-    } else if (board.valid(movedPiece)) {
-      board.piece.move(movedPiece)
+    } else if (board.valid(nextPiecePosition)) {
+      board.piece.move(nextPiecePosition)
 
       if (event.keyCode === KEY.DOWN) {
         gameData.score += POINTS.SOFT_DROP;

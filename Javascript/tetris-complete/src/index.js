@@ -107,16 +107,16 @@ document.addEventListener('keydown', event => {
   if (MOVES[event.keyCode]) {
     event.preventDefault();
 
-    let movedPiece = MOVES[event.keyCode](board.piece)
+    let nextPiecePosition = MOVES[event.keyCode](board.piece)
 
     if (event.keyCode === KEY.SPACE) {
-      while (board.valid(movedPiece)) {
-        board.piece.move(movedPiece);
-        movedPiece = MOVES[event.keyCode](board.piece)
+      while (board.valid(nextPiecePosition)) {
+        board.piece.move(nextPiecePosition);
+        nextPiecePosition = MOVES[event.keyCode](nextPiecePosition);
         gameData.score += POINTS.HARD_DROP;
       }
-    } else if (board.valid(movedPiece)) {
-      board.piece.move(movedPiece)
+    } else if (board.valid(nextPiecePosition)) {
+      board.piece.move(nextPiecePosition)
 
       if (event.keyCode === KEY.DOWN) {
         gameData.score += POINTS.SOFT_DROP;
